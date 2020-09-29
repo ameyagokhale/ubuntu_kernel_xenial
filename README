@@ -1,7 +1,12 @@
 Building the kernel for flo:
 
-1. sudo apt install gcc-4.9-arm-linux-gnueabihf build-essential
-2. cp debian.flo/config/config.common.ubuntu arch/arm/configs/ubuntu_flo_defconfig
+1. Add these repositories in /etc/apt/source.list for gcc-4.9 installation
+
+    deb http://dk.archive.ubuntu.com/ubuntu/ xenial main
+    deb http://dk.archive.ubuntu.com/ubuntu/ xenial universe
+
+2. sudo apt install gcc-4.9-arm-linux-gnueabihf build-essential
+NOTE: `cp debian.flo/config/config.common.ubuntu arch/arm/configs/ubuntu_flo_defconfig` is already done while implementing Anbox related changes
 3. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- CC=/usr/bin/arm-linux-gnueabihf-gcc-4.9 ubuntu_flo_defconfig
 4. make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- CC=/usr/bin/arm-linux-gnueabihf-gcc-4.9 zImage
 
